@@ -43,22 +43,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setResult:(nullable id)result {
     if (![self.task trySetResult:result]) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot set the result on a completed task."];
+        NSlog(@"###BOLTS FRAMEWORK Cannot set the result on a completed task.");
     }
 }
 
 - (void)setError:(NSError *)error {
     if (![self.task trySetError:error]) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot set the error on a completed task."];
+        NSlog(@"###BOLTS FRAMEWORK Cannot set the error on a completed task.");
     }
 }
 
 - (void)cancel {
     if (![self.task trySetCancelled]) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Cannot cancel a completed task."];
+        NSlog(@"###BOLTS FRAMEWORK Cannot cancel a completed task.");
     }
 }
 
